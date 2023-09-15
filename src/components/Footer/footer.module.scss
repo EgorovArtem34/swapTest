@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 96px 40px;
+}
+
+.listItem {
+  position: relative;
+  
+  &:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: -11px;
+    width: 0.8px;
+    height: 26px;
+    border-right: 1px solid #babfc7;
+  }
+}
+
+.list {
+  display: flex;
+  gap: 22px;
+  list-style-type: none;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.copyright,
+.link {
+  color: #babfc7;
+  font-feature-settings: "clig" off, "liga" off;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+}
