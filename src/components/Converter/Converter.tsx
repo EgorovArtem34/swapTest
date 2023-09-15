@@ -3,6 +3,7 @@ import { Button } from "../../ui/Button/Button";
 import styles from "./сonverter.module.scss";
 import infoSvg from "../../assets/svg/info.svg";
 import walletLargeSvg from "../../assets/svg/walletLarge.svg";
+import arrowNextSvg from '../../assets/svg/arrowNext.svg';
 import { ConverterCard } from "../ConverterCard/ConverterCard";
 
 export const Converter = () => {
@@ -36,6 +37,11 @@ export const Converter = () => {
           <div className={styles.cards}>
             <ConverterCard operation="sell" token="cryg" />
             <ConverterCard operation="purchase" token="del" />
+            <Button variant="converter">
+              <div className={styles.ellipse}>
+                <img src={arrowNextSvg} className={styles.arrowNext} alt="стрелка" />
+              </div>
+            </Button>
           </div>
           <div className={styles.exchangeRate}>
             <img src={infoSvg} alt="информация" />
