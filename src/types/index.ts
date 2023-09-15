@@ -8,6 +8,12 @@ export interface ITokens {
 }
 
 export interface IExchangeRate {
-  perDollar: number;
-  perDel: number;
+  cryg: {
+    perDollar: number;
+    perDel: number;
+  };
+  del: {
+    perDollar: number;
+    perCryg: number;
+  };
 }

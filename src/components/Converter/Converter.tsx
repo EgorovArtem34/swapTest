@@ -3,12 +3,20 @@ import { Button } from "../../ui/Button/Button";
 import styles from "./сonverter.module.scss";
 import infoSvg from "../../assets/svg/info.svg";
 import walletLargeSvg from "../../assets/svg/walletLarge.svg";
-import arrowNextSvg from '../../assets/svg/arrowNext.svg';
+import arrowNextSvg from "../../assets/svg/arrowNext.svg";
 import { ConverterCard } from "../ConverterCard/ConverterCard";
+import { useAppSelector } from "../../hooks/hooks";
 
 export const Converter = () => {
   const [activeTab, setActiveTab] = useState("Swap");
-
+  const {
+    sellableToken: {
+      sellableTokenName,
+      sellableTokenPerOtherToken,
+      sellableTokenPer1Dollar,
+    },
+    purchasedToken: { purchasedTokenName },
+  } = useAppSelector((state) => state.converterSlice);
   return (
     <main className={styles.main}>
       <div className={styles.container}>
@@ -39,14 +47,21 @@ export const Converter = () => {
             <ConverterCard operation="purchase" token="del" />
             <Button variant="converter">
               <div className={styles.ellipse}>
-                <img src={arrowNextSvg} className={styles.arrowNext} alt="стрелка" />
+                <img
+                  src={arrowNextSvg}
+                  className={styles.arrowNext}
+                  alt="стрелка"
+                />
               </div>
             </Button>
           </div>
           <div className={styles.exchangeRate}>
             <img src={infoSvg} alt="информация" />
             <p className={styles.exchangeRateText}>
-              1 {"token"} = <span className={styles.dollars}>(number)</span>
+              {`1 ${sellableTokenName.toUpperCase()} = ${sellableTokenPerOtherToken.toFixed(3)} ${purchasedTokenName.toUpperCase()} `}
+              <span className={styles.dollars}>
+                ({`~$${sellableTokenPer1Dollar.toFixed(2)}`})
+              </span>
             </p>
           </div>
 

@@ -18,13 +18,13 @@ export const converterTextOperations: Record<string, string> = {
   purchase: 'Вы покупаете',
 }
 
-export const exchangeRates: Record<string, IExchangeRate> = {
+export const exchangeRates: IExchangeRate = {
   cryg: {
     perDollar: 333.73,
     perDel: 714.543016,
   },
   del: {
     perDollar: 331.62,
-    perDel: 0.0013988,
+    perCryg: 0.0013988,
   },
 }
