@@ -1,14 +1,15 @@
 import crygLogo from "../assets/images/cryg.png";
 import delLogo from "../assets/images/del.png";
+import { tokensEnum } from "../store/types";
 import { IExchangeRate, ITokens } from "../types";
 
 export const tokens: ITokens = {
   cryg: {
-    name: "CRYG",
+    name: tokensEnum.CRYG,
     image: crygLogo,
   },
   del: {
-    name: "DEL",
+    name: tokensEnum.DEL,
     image: delLogo,
   },
 };

@@ -6,6 +6,7 @@ import walletLargeSvg from "../../assets/svg/walletLarge.svg";
 import arrowNextSvg from "../../assets/svg/arrowNext.svg";
 import { ConverterCard } from "../ConverterCard/ConverterCard";
 import { useAppSelector } from "../../hooks/hooks";
+import { ChooseToken } from "../ChooseToken/ChooseToken";
 
 export const Converter = () => {
   const [activeTab, setActiveTab] = useState("Swap");
@@ -17,59 +18,65 @@ export const Converter = () => {
     },
     purchasedToken: { purchasedTokenName },
   } = useAppSelector((state) => state.converterSlice);
+  const { isSelectedToken } = useAppSelector((state) => state.selectedTokenSlice);
   return (
     <main className={styles.main}>
       <div className={styles.container}>
-        <ul className={styles.tabs}>
-          <li>
-            <Button
-              variant="transparent"
-              isActive={activeTab === "Swap"}
-              onClick={() => setActiveTab("Swap")}
-            >
-              Swap
-            </Button>
-          </li>
-          <li>
-            <Button
-              variant="transparent"
-              isActive={activeTab === "Pools"}
-              onClick={() => setActiveTab("Pools")}
-            >
-              Pools
-            </Button>
-          </li>
-        </ul>
+        {isSelectedToken ? <ChooseToken /> : (
+          <>
+            <ul className={styles.tabs}>
+              <li>
+                <Button
+                  variant="transparent"
+                  isActive={activeTab === "Swap"}
+                  onClick={() => setActiveTab("Swap")}
+                >
+                  Swap
+                </Button>
+              </li>
+              <li>
+                <Button
+                  variant="transparent"
+                  isActive={activeTab === "Pools"}
+                  onClick={() => setActiveTab("Pools")}
+                >
+                  Pools
+                </Button>
+              </li>
+            </ul>
 
-        <div className={styles.converter}>
-          <div className={styles.cards}>
-            <ConverterCard operation="sell" token="cryg" />
-            <ConverterCard operation="purchase" token="del" />
-            <Button variant="converter">
-              <div className={styles.ellipse}>
-                <img
-                  src={arrowNextSvg}
-                  className={styles.arrowNext}
-                  alt="стрелка"
-                />
+            <div className={styles.converter}>
+              <div className={styles.cards}>
+                <ConverterCard operation="sell" token={sellableTokenName} />
+                <ConverterCard operation="purchase" token={purchasedTokenName} />
+                <Button variant="converter">
+                  <div className={styles.ellipse}>
+                    <img
+                      src={arrowNextSvg}
+                      className={styles.arrowNext}
+                      alt="стрелка"
+                    />
+                  </div>
+                </Button>
               </div>
-            </Button>
-          </div>
-          <div className={styles.exchangeRate}>
-            <img src={infoSvg} alt="информация" />
-            <p className={styles.exchangeRateText}>
-              {`1 ${sellableTokenName.toUpperCase()} = ${sellableTokenPerOtherToken.toFixed(3)} ${purchasedTokenName.toUpperCase()} `}
-              <span className={styles.dollars}>
-                ({`~$${sellableTokenPer1Dollar.toFixed(2)}`})
-              </span>
-            </p>
-          </div>
+              <div className={styles.exchangeRate}>
+                <img src={infoSvg} alt="информация" />
+                <p className={styles.exchangeRateText}>
+                  {`1 ${sellableTokenName.toUpperCase()} = ${sellableTokenPerOtherToken.toFixed(3)}
+                  ${purchasedTokenName.toUpperCase()} `}
+                  <span className={styles.dollars}>
+                    ({`~$${sellableTokenPer1Dollar.toFixed(2)}`})
+                  </span>
+                </p>
+              </div>
 
-          <Button variant="wallet">
-            <img src={walletLargeSvg} alt="кошелек" />
-            Сonnect walley
-          </Button>
-        </div>
+              <Button variant="wallet">
+                <img src={walletLargeSvg} alt="кошелек" />
+                Сonnect walley
+              </Button>
+            </div>
+          </>
+        )}
       </div>
     </main>
   );

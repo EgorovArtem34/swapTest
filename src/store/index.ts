@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import converterSlice from "./slices/converterSlice";
+import selectedTokenSlice from "./slices/selectedTokenSlice";
 
 const store = configureStore({
   reducer: {
     converterSlice,
+    selectedTokenSlice,
   },
 });
 

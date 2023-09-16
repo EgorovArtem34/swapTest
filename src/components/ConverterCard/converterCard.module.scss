@@ -8,16 +8,71 @@
   margin-bottom: 20px;
 }
 
-.sale {
+.sell {
   background: rgba(255, 255, 255, 0.04);
+}
+
+.totalCost,
+.input {
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 140%;
+  letter-spacing: 0.52px;
+  color: var(--white, #fff);
+}
+
+.totalCost {
+  margin-left: 10px;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+.input {
+  border: 1px solid transparent;
+  padding: 5px 0;
+  background: transparent;
+  border-radius: 10px;
+  outline: none;
+  width: 45%;
+  text-align: right;
+
+ &:not(:focus) {
+    &.input[type="number"]::-webkit-inner-spin-button,
+    &.input[type="number"]::-webkit-outer-spin-button {
+      appearance: none;
+    }
+  }
+
+
+  &:hover,
+  &:focus {
+    border: 1px solid var(--blue);
+  }
+
+  &:focus {
+   padding: 5px 10px;
+   text-align: left;
+  }
+
+
+  &::placeholder {
+    font-size: 16px;
+    vertical-align: middle;
+    line-height: normal;
+  }
 }
 
 .purchase {
   background: rgba(255, 255, 255, 0.2);
+
+  .input {
+    background: rgba(255, 255, 255, 0.04);
+  }
 }
 
 .purchase,
-.sale {
+.sell {
   padding: 18px 25px;
   border-radius: 20px;
 }
@@ -27,15 +82,6 @@
   align-items: center;
   gap: 6px;
 
-  font-size: 26px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 140%;
-  letter-spacing: 0.52px;
-}
-
-.value {
-  text-align: right;
   font-size: 26px;
   font-style: normal;
   font-weight: 600;

@@ -9,17 +9,29 @@ export interface IConverterState {
     sellableTokenPerOtherToken: number;
     sellableTokenPer1Dollar: number;
     sellableTokensInDollars: number;
-    sellableTokenCount: number;
+    sellableTokenCount: number | string;
   };
   purchasedToken: {
     purchasedTokenName: tokensEnum;
-    purchasedTokenPerOtherToken: number; 
+    purchasedTokenPerOtherToken: number;
+    totalPurchasedTokenCost: number;
     purchasedTokenInDollars: number;
     purchasedTokenPer1Dollar: number;
     purchasedTokenCount: number;
   };
   differenceValue: {
-    inDollars: number,
+    inDollars: number;
     inDollarsPercentage: number;
-  },
+  };
+}
+
+export interface IConverterCard {
+  operation: string;
+  token: string;
+}
+
+export interface ISelectedTokenState {
+  isSelectedToken: boolean;
+  selectedToken: string;
+  selectedOperationType: string;
 }
