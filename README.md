@@ -1,27 +1,27 @@
-# React + TypeScript + Vite
+# Тестовое задание
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+конвертер валют с возможностью выбора и пересчета валюты.
 
-Currently, two official plugins are available:
+[vercel deploy](https://swap-test-iota.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Использованные технологии
 
-## Expanding the ESLint configuration
+- React
+- TypeScript
+- Redux, Redux Toolkit
+- Vite
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Установка
 
-- Configure the top-level `parserOptions` property like this:
+1. Склонируйте репозиторий `git clone https://github.com/EgorovArtem34/swapTest`
+2. Перейдите в директорию проекта `cd swapTest`
+3. Установите зависимости `make install`
+4. Запустите локальную версию `make start`
+5. Нажмите на кнопку `h` для показа настроек
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+```press r to restart the server
+press u to show server url
+press o to open in browser
+press c to clear console
+press q to quit
 ```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
