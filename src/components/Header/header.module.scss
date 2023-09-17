@@ -1,12 +1,14 @@
 .container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 40px 96px;
-  margin-bottom: 10px;
+  gap: 10px;
+  margin-bottom: 8px;
 }
 
 .logoAndNavContainer {
-  gap: 40px;
+  gap: 31px;
 }
 
 .mainLink {
@@ -48,12 +50,12 @@
   margin-right: 6px;
 }
 
-.nav {
-  padding: 0 10px;
-}
+// .nav {
+//   padding: 0 10px;
+// }
 
 .list {
-  gap: 20px;
+  gap: 23px;
 }
 
 .listItem {
@@ -63,4 +65,42 @@
 .interface {
   display: flex;
   gap: 5px;
+
+  & > button:first-of-type {
+    padding: 7px 6.083px 7px 6px;
+  }
+}
+
+@media (max-width: 860px) {
+  .container {
+    padding: 20px 36px;
+  }
+
+  .list {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    gap: 8px;
+  }
+
+  .logoAndNavContainer {
+    gap: 15px;
+  }
+}
+
+@media (max-width: 540px) {
+  .container {
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .logoAndNavContainer {
+    display: none;
+  }
+
+  .interface {
+    button:first-of-type {
+      order: 3;
+    }
+  }
 }

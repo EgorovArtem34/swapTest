@@ -35,9 +35,13 @@ export const ConverterCard = ({ operation, token }: IConverterCard) => {
       <p className={styles.operationType}>
         {converterTextOperations[operation]}
       </p>
-      <div className={styles.data}>
+      <div className={`${styles.data} ${styles[`data-${operation}`]}`}>
         <div className={styles.name}>
-          <img src={tokenData.image} alt="иконка" />
+          <img
+            src={tokenData.image}
+            alt="иконка"
+            className={styles[`img-${token}`]}
+          />
           <span className={styles.text}>
             {tokenData.name.toLocaleUpperCase()}
           </span>
@@ -46,7 +50,7 @@ export const ConverterCard = ({ operation, token }: IConverterCard) => {
             onClick={handleToken}
             aria-label="выбрать валюту"
           >
-            <img src={arrowSvg} alt="стрелка" />
+            <img src={arrowSvg} alt="стрелка" className={styles.arrowSelect} />
           </Button>
         </div>
         {operation === "sell" ? (
@@ -70,7 +74,7 @@ export const ConverterCard = ({ operation, token }: IConverterCard) => {
       <div className={styles.description}>
         <span>{token.toUpperCase()}</span>
         <span>
-          ~{exchangeRates[token as keyof IExchangeRate]?.perDollar}
+          ~${exchangeRates[token as keyof IExchangeRate]?.perDollar}
           {operation === "purchase" && (
             <span>{` (${inDollarsPercentage.toFixed(2)}%)`}</span>
           )}

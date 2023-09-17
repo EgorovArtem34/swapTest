@@ -2,7 +2,7 @@ import styles from "./footer.module.scss";
 
 export const Footer = () => {
   return (
-    <div className={styles.container}>
+    <footer className={styles.footer}>
       <div>
         <p className={styles.copyright}>
           Copyright. @ 2023 Corp Name Все права защищены
@@ -20,6 +20,6 @@ export const Footer = () => {
           </a>
         </li>
       </ul>
-    </div>
+    </footer>
   );
 };

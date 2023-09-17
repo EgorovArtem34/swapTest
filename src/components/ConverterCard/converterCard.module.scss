@@ -1,11 +1,18 @@
 .data {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 27px;
+}
+
+.data-sell {
+  margin-bottom: 15px;
+}
+
+.data-purchase {
+  margin-bottom: 25px;
 }
 
 .operationType {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .sell {
@@ -37,13 +44,12 @@
   width: 45%;
   text-align: right;
 
- &:not(:focus) {
+  &:not(:focus) {
     &.input[type="number"]::-webkit-inner-spin-button,
     &.input[type="number"]::-webkit-outer-spin-button {
       appearance: none;
     }
   }
-
 
   &:hover,
   &:focus {
@@ -51,10 +57,9 @@
   }
 
   &:focus {
-   padding: 5px 10px;
-   text-align: left;
+    padding: 5px 10px;
+    text-align: left;
   }
-
 
   &::placeholder {
     font-size: 16px;
@@ -73,7 +78,10 @@
 
 .purchase,
 .sell {
+  max-width: 483px;
+  max-height: 162.628px;
   padding: 18px 25px;
+  padding-top: 15px;
   border-radius: 20px;
 }
 
@@ -101,4 +109,50 @@
   font-weight: 400;
   letter-spacing: 0.36px;
   opacity: 0.7;
+}
+
+.img-del {
+  width: 36px;
+  height: 36px;
+}
+
+.img-cryg {
+  width: 32.532px;
+  height: 36px;
+}
+
+.arrowSelect {
+  width: 14px;
+  height: 14px;
+}
+
+@media (max-width: 540px) {
+  .operationType,
+  .description {
+    font-size: 12px;
+    line-height: 140%;
+    letter-spacing: 0.24px;
+  }
+  .img-cryg {
+    width: 28.917px;
+    height: 32px;
+  }
+  .img-del {
+    width: 32px;
+    height: 32px;
+  }
+  .name {
+    font-size: 16px;
+    letter-spacing: 0.32px;
+  }
+  .totalCost,
+  .input {
+    font-size: 16px;
+    letter-spacing: 0.32px;
+  }
+  .purchase,
+  .sell {
+    max-width: 315px;
+    max-height: 126px;
+  }
 }

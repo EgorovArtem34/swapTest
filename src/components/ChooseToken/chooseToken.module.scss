@@ -1,13 +1,38 @@
+.container {
+  position: absolute;
+  width: 100%;
+  left: -100%;
+  z-index: 10;
+  padding: 0 20px;
+  background: linear-gradient(
+    180deg,
+    var(--dark-blue, #222342) 0%,
+    rgba(34, 35, 66, 1) 100%
+  );
+  transition: all 0.9s ease;
+
+  &.active {
+    left: 0;
+  }
+}
+
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 26px;
+  margin: 10px 20px 26px 0;
 }
 
 .title {
   text-align: center;
   flex-grow: 1;
+
+  text-align: center;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.36px;
 }
 
 .inputContainer {
@@ -102,5 +127,30 @@
   .del {
     width: 32px;
     height: 32px;
+  }
+}
+
+@media (max-width: 540px) {
+  .modal {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background: rgba(34, 35, 66, 0.7);
+  }
+  .container {
+    height: 379px;
+    width: 100%;
+    left: 0;
+    top: 120%;
+    background: #19172f;
+    border-radius: 30px 30px 0px 0px;
+    box-shadow: 20px 10px 80px 0px rgba(64, 165, 243, 0.5);
+    opacity: 1;
+  }
+  .container.active {
+    top: 60%;
   }
 }
